@@ -94,7 +94,7 @@ class C3_Base {
 	 * @access public
 	 */
 	public function get_c3_options() {
-		$c3_settings = get_option( self::OPTION_NAME );
+		$c3_settings = get_option( self::OPTION_NAME.':'.$_SERVER['HTTP_HOST'] );
 		if ( ! $c3_settings ) {
 			$c3_settings = array(
 				'distribution_id' => '',

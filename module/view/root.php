@@ -139,7 +139,7 @@ class C3_Admin extends C3_Component {
 	 * @since 4.0.0
 	 */
 	private function _get_manual_invalidation_form() {
-		$c3_settings = get_option( self::OPTION_NAME );
+		$c3_settings = get_option( self::OPTION_NAME.':'.$_SERVER['HTTP_HOST'] );
 		$html = '';
 		if ( ! $c3_settings ) {
 			return $html;
@@ -172,7 +172,7 @@ class C3_Admin extends C3_Component {
 	 * @return string
 	 **/
 	public function get_invalidation_logs() {
-		$c3_settings = get_option( self::OPTION_NAME );
+		$c3_settings = get_option( self::OPTION_NAME.':'.$_SERVER['HTTP_HOST'] );
 		$html = '';
 		if ( ! $c3_settings ) {
 			return $html;

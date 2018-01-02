@@ -94,7 +94,7 @@ class C3_Controller {
 		$result = false;
 		if ( $this->is_trust_post_param( C3_Base::C3_AUTHENTICATION ) ) {
 			$options = $this->_esc_setting_param( $_POST[ C3_Base::OPTION_NAME ] );
-			update_option( C3_Base::OPTION_NAME, $options );
+			update_option( C3_Base::OPTION_NAME.':'.$_SERVER['HTTP_HOST'], $options );
 
 			$auth = C3_Auth::get_instance();
 			$result = $auth->auth( $options );
